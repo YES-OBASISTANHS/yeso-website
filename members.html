@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Member Management | YES-O Digital Hub</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="admin-logo">
+
+<img src="yeso.png">
+
+<h2>YES-O</h2>
+
+</div>
+
+<ul>
+
+<li><a href="admin.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+
+<li><a href="members.html" class="active"><i class="fas fa-users"></i> Members</a></li>
+
+<li><a href="attendance.html"><i class="fas fa-qrcode"></i> Attendance</a></li>
+
+<li><a href="activities.html"><i class="fas fa-calendar"></i> Activities</a></li>
+
+<li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+
+<li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+</ul>
+
+</aside>
+
+<!-- Content -->
+
+<main class="content">
+
+<h1>Member Management</h1>
+
+<div class="member-toolbar">
+
+<input
+type="text"
+id="memberSearch"
+placeholder="Search member...">
+
+<select id="committeeFilter">
+
+<option value="">All Committees</option>
+
+<option>Secretariat</option>
+
+<option>Finance</option>
+
+<option>Projects & Activities</option>
+
+<option>Environmental Campaign</option>
+
+<option>Environmental Research</option>
+  
+<option>Disaster Risk Reduction Management</option>
+
+<option>Eco Volunteers</option>
+
+</select>
+
+<button id="addMemberBtn">
+
+<i class="fas fa-user-plus"></i>
+
+Add Member
+
+</button>
+
+</div>
+
+<table class="member-table">
+
+<thead>
+
+<tr>
+
+<th>Photo</th>
+
+<th>Member ID</th>
+
+<th>Name</th>
+
+<th>Grade</th>
+
+<th>Section</th>
+
+<th>Committee</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="memberTableBody">
+
+</tbody>
+
+</table>
+
+</main>
+<!-- Add Member Modal -->
+
+<div id="memberModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" id="closeModal">&times;</span>
+
+        <h2>Add New Member</h2>
+
+        <form id="memberForm">
+
+            <input
+                type="text"
+                id="memberName"
+                placeholder="Full Name"
+                required>
+
+            <input
+                type="text"
+                id="memberGrade"
+                placeholder="Grade"
+                required>
+
+            <input
+                type="text"
+                id="memberSection"
+                placeholder="Section"
+                required>
+
+            <select id="memberCommittee" required>
+
+                <option value="">Select Committee</option>
+
+                <option>Secretariat</option>
+
+                <option>Finance</option>
+
+                <option>Projects & Activities</option>
+
+                <option>Environmental Campaign</option>
+
+                <option>Environmental Research</option>
+              
+                <option>Disaster Risk Reduction Management</option>
+
+                <option>Eco Volunteers</option>
+
+            </select>
+
+            <button type="submit">
+
+                Save Member
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="members.js"></script>
+
+</body>
+
+</html>

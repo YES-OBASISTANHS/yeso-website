@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YES-O Attendance</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="admin-logo">
+
+            <img src="yeso.png" alt="YES-O Logo">
+
+            <h2>YES-O</h2>
+
+        </div>
+
+        <ul>
+
+            <li><a href="admin.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+
+            <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+
+            <li><a href="attendance.html" class="active"><i class="fas fa-qrcode"></i> Attendance</a></li>
+
+            <li><a href="activities.html"><i class="fas fa-calendar"></i> Activities</a></li>
+
+            <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+
+            <li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <h1>
+            <i class="fas fa-qrcode"></i>
+            QR Attendance System
+        </h1>
+
+        <p>
+            Scan a member's QR code to record attendance.
+        </p>
+
+        <!-- Scanner -->
+        <section class="scanner-card">
+
+            <h2>
+                <i class="fas fa-camera"></i>
+                QR Scanner
+            </h2>
+
+            <div id="reader"></div>
+
+            <button id="startScanner">
+                <i class="fas fa-play"></i>
+                Start Scanner
+            </button>
+
+            <button id="stopScanner">
+                <i class="fas fa-stop"></i>
+                Stop Scanner
+            </button>
+
+        </section>
+
+        <!-- Member Information -->
+        <section class="member-info">
+
+            <h2>Member Information</h2>
+
+            <div class="info-grid">
+
+                <div><strong>Name:</strong> <span id="memberName">---</span></div>
+
+                <div><strong>Member ID:</strong> <span id="memberID">---</span></div>
+
+                <div><strong>Committee:</strong> <span id="memberCommittee">---</span></div>
+
+                <div><strong>Status:</strong> <span id="attendanceStatus">Waiting for scan...</span></div>
+
+            </div>
+
+        </section>
+
+        <!-- Attendance Table -->
+        <section class="attendance-table">
+
+            <h2>Today's Attendance</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Time</th>
+
+                        <th>Member ID</th>
+
+                        <th>Name</th>
+
+                        <th>Committee</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="attendanceBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- QR Scanner Library -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<!-- Firebase -->
+<script type="module" src="firebase.js"></script>
+
+<!-- Attendance Logic -->
+<script type="module" src="attendance.js"></script>
+
+</body>
+
+</html>

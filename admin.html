@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>YES-O Admin Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="admin-logo">
+
+<img src="images/yeso-logo.png">
+
+<h2>YES-O</h2>
+
+</div>
+
+<ul>
+
+<li><a href="#" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+
+<li><a href="admin.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+
+<li><a href="members.html" class="active"><i class="fas fa-users"></i> Members</a></li>
+
+<li><a href="attendance.html"><i class="fas fa-qrcode"></i> Attendance</a></li>
+
+<li><a href="activities.html"><i class="fas fa-calendar"></i> Activities</a></li>
+
+<li><a href="news.html"><i class="fas fa-newspaper"></i> News</a></li>
+
+<li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+
+<li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+
+<li><a href="#" id="logoutBtn"><i class="fas fa-right-from-bracket"></i> Logout</a></li>
+
+</ul>
+
+</aside>
+
+<!-- Main -->
+
+<main class="content">
+
+<header>
+
+<h1>YES-O Dashboard</h1>
+
+<p>Welcome Administrator</p>
+
+</header>
+
+<!-- Statistics -->
+
+<section class="stats">
+
+<div class="stat-box">
+
+<i class="fas fa-users"></i>
+
+<h2 id="totalMembers">0</h2>
+
+<p>Members</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fas fa-user-check"></i>
+
+<h2 id="presentToday">0</h2>
+
+<p>Present Today</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fas fa-calendar-check"></i>
+
+<h2 id="activitiesCount">0</h2>
+
+<p>Activities</p>
+
+</div>
+
+<div class="stat-box">
+
+<i class="fas fa-seedling"></i>
+
+<h2 id="treesPlanted">0</h2>
+
+<p>Trees Planted</p>
+
+</div>
+
+</section>
+
+<!-- Quick Actions -->
+
+<section class="quick-actions">
+
+<h2>Quick Actions</h2>
+
+<div class="action-grid">
+
+<a href="members.html">
+
+<i class="fas fa-user-plus"></i>
+
+Add Member
+
+</a>
+
+<a href="attendance.html">
+
+<i class="fas fa-qrcode"></i>
+
+Scan Attendance
+
+</a>
+
+<a href="activities.html">
+
+<i class="fas fa-calendar-plus"></i>
+
+New Activity
+
+</a>
+
+<a href="gallery.html">
+
+<i class="fas fa-upload"></i>
+
+Upload Photos
+
+</a>
+
+<a href="news.html">
+
+<i class="fas fa-newspaper"></i>
+
+Post News
+
+</a>
+
+<a href="reports.html">
+
+<i class="fas fa-chart-pie"></i>
+
+Reports
+
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="admin.js"></script>
+
+</body>
+
+</html>
