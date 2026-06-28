@@ -1,5 +1,8 @@
-import { auth } from "firebase.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+import { auth } from "./firebase.js";
+import {
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 const ADMIN_EMAIL = "yesobasistanhs@gmail.com";
 
@@ -10,51 +13,21 @@ onAuthStateChanged(auth, (user) => {
     return;
   }
 
-  if (user.email !== ADMIN_EMAIL) {
-    alert("Access denied.");
+  if (user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+    alert("Access denied!");
     window.location.href = "index.html";
+    return;
   }
 
-});
-import { auth } from "firebase.js";
-
-import {
-
-signOut
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-document.getElementById("logoutBtn").addEventListener("click",()=>{
-
-signOut(auth).then(()=>{
-
-window.location.href="login.html";
-
+  console.log("Admin logged in:", user.email);
 });
 
-});
-
-/* Temporary Demo Data */
-
-document.getElementById("totalMembers").textContent=150;
-
-document.getElementById("presentToday").textContent=87;
-
-document.getElementById("activitiesCount").textContent=18;
-
-document.getElementById("treesPlanted").textContent=1230;
-
-import { auth } from "firebase.js";
-
-import {
-    signOut
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-
+// Logout button
 const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
-    logoutBtn.addEventListener("click", async () => {
-        await signOut(auth);
-        window.location.href = "login.html";
-    });
+  logoutBtn.addEventListener("click", async () => {
+    await signOut(auth);
+    window.location.href = "login.html";
+  });
 }
