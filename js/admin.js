@@ -26,3 +26,17 @@ document.getElementById("activitiesCount").textContent=18;
 
 document.getElementById("treesPlanted").textContent=1230;
 
+import { auth } from "firebase.js";
+
+import {
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+        await signOut(auth);
+        window.location.href = "login.html";
+    });
+}
