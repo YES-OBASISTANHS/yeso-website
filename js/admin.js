@@ -1,4 +1,22 @@
 import { auth } from "firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+const ADMIN_EMAIL = "yesobasistanhs@gmail.com";
+
+onAuthStateChanged(auth, (user) => {
+
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  if (user.email !== ADMIN_EMAIL) {
+    alert("Access denied.");
+    window.location.href = "index.html";
+  }
+
+});
+import { auth } from "firebase.js";
 
 import {
 
