@@ -1,58 +1,29 @@
-import { auth, db } from "firebase.js";
-
+import { auth } from "./firebase.js";
 import {
-    signInWithEmailAndPassword
+  signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
-import {
-    doc,
-    getDoc
-} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+const ADMIN_EMAIL = "yesobasistanhs@gmail.com"; // Replace with your admin email
 
 const form = document.getElementById("loginForm");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
 
-    try {
+      if (userCredential.user.email === ADMIN_EMAIL) {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "members.html";
+      }
 
-        const userCredential =
-            await signInWithEmailAndPassword(auth,email,password);
-
-        const user = userCredential.user;
-
-        const userRef = doc(db,"users",user.uid);
-
-        const snap = await getDoc(userRef);
-
-        if(!snap.exists()){
-
-            alert("Account not registered.");
-
-            return;
-
-        }
-
-        const data = snap.data();
-
-        if(data.role==="admin"){
-
-            window.location.href="admin.html";
-
-        }else{
-
-            window.location.href="members.html";
-
-        }
-
-    }catch(error){
-
-        document.getElementById("loginMessage").textContent=error.message;
-
-    }
-
+    })
+    .catch((error) => {
+      document.getElementById("loginMessage").textContent = error.message;
+    });
 });
