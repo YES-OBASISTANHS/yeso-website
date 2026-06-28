@@ -19,8 +19,8 @@ onAuthStateChanged(auth, async(user)=>{
 
     }
 
-    const snap=await getDoc(doc(db,"users",user.uid));
-
+    const snap = await getDoc(doc(db, "User", user.uid));
+   
     if(!snap.exists()){
 
         location.href="login.html";
